@@ -1,0 +1,34 @@
+<h1 class="text-center">Departments</h1>
+<div class="text-center">
+  <button class="btn btn-success" routerLink="/departments/add">
+    Add New Department
+  </button>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Adress</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let object of departmentList">
+      <th scope="row">{{ object.id }}</th>
+      <td>{{ object.name }}</td>
+      <td>{{ object.adress }}</td>
+      <td>
+        <button
+          [routerLink]="['/departments/update', object.id]"
+          class="btn btn-primary"
+        >
+          Update
+        </button>
+        <button class="btn btn-danger" (click)="removeDepartment(object.id)">
+          Remove
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

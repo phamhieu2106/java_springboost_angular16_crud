@@ -1,0 +1,77 @@
+<h1 class="text-center">Add Employee</h1>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label class="form-label">Name</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Employee department"
+      formControlName="name"
+    />
+    <div *ngIf="Name.touched && Name.invalid" class="text-danger">
+      Name is invalid
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Adress</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Employee department"
+      formControlName="adress"
+    />
+    <div *ngIf="Adress.touched && Adress.invalid" class="text-danger">
+      Adress is invalid
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Sex</label>
+    <select class="form-control" name="" id="" formControlName="sex">
+      <option [value]="0" [selected]="true">Male</option>
+      <option [value]="1">Female</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Bod</label>
+    <input type="date" class="form-control" formControlName="bod" />
+    <div *ngIf="Bod.touched && Bod.invalid" class="text-danger">
+      Bod is invalid
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Email</label>
+    <input
+      type="email"
+      class="form-control"
+      formControlName="email"
+      placeholder="Email"
+    />
+    <div *ngIf="Email.touched && Email.invalid" class="text-danger">
+      Email is invalid
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Salary</label>
+    <input
+      type="number"
+      class="form-control"
+      formControlName="salary"
+      placeholder="Salary"
+    />
+    <div *ngIf="Salary.touched && Salary.invalid" class="text-danger">
+      Salary is invalid
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Department</label>
+    <select class="form-control" formControlName="department">
+      <option *ngFor="let object of departments" [value]="object.id">
+        {{ object.name }}
+      </option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-success" [disabled]="form.invalid">
+    Add
+  </button>
+</form>

@@ -1,0 +1,38 @@
+<h1 class="text-center">Update Department</h1>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <input
+    class="form-control"
+    type="number"
+    formControlName="id"
+    [hidden]="true"
+  />
+
+  <div class="mb-3">
+    <label class="form-label">Name</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Name department"
+      formControlName="name"
+    />
+    <div *ngIf="name.touched && name.invalid" class="text-danger">
+      Name is invalid
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Adress</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Adress department"
+      formControlName="adress"
+    />
+    <div *ngIf="adress.touched && adress.invalid" class="text-danger">
+      Adress is invalid
+    </div>
+  </div>
+  <button type="submit" class="btn btn-success" [disabled]="form.invalid">
+    Update
+  </button>
+</form>
